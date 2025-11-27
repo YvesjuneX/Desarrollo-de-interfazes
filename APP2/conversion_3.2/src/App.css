@@ -4,7 +4,7 @@
   padding: 2rem;
   text-align: center;
 }
-
+/*
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -40,3 +40,140 @@
 .read-the-docs {
   color: #888;
 }
+*/
+body {
+  background-color: #000000;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.contenedor-principal {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 20px;
+  /*Aplica una sombra para crear un efecto de profundidad. 
+  Esto crea un efecto de que el elemento flota sobre el fondo*/
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  /*Esto oculta todo el contenido hijo de este contenedor que se salga de los bordes de este contenedor*/
+  overflow: hidden;
+}
+
+.header {
+  /*Esto permite añadir un gradiente, para indicar la horientazion 
+  del gradiente indicamos hacia que direccion en nuesto caso es hacia la derecha (to right)*/
+  background: linear-gradient(to right, #44a55c, #8f9125);
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+.foto-perfil {
+  width: 150px;
+  height: 150px;
+  border: 4px solid white;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 48px;
+  margin: 10px 0;
+}
+
+.header h2 {
+  font-size: 24px;
+  font-weight: normal;
+  opacity: 0.9;
+  margin: 10px 0;
+}
+
+.seccion {
+  padding: 30px;
+  margin: 20px;
+  background-color: #f9fafb;
+  border-radius: 10px;
+  display: flex;
+}
+
+.titulo-seccion {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 15px;
+}
+
+.lista-habilidades {
+  /*Permite que los elementos contenidos dentro ajusten su tamaño dependiendo del tamaño disponible*/
+  display: flex;
+  /*Esto indica que si el contenedor no es lo suficientemente ancho los elementos 
+  pueden ocupar multiples lineas de lo contrario ocuparan solo una */
+  flex-wrap: wrap;
+  gap: 10px;
+  /*Añadi un justify content para poder centrar la lista de habilidades*/
+  justify-content: center;
+}
+
+.habilidad {
+  background: linear-gradient(to right, #ede9fe, #dbeafe);
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 2px solid #9333ea;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.item-experiencia {
+  border-left: 4px solid #9333ea;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.item-experiencia h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1f2937;
+  margin: 5px 0;
+}
+
+.empresa {
+  color: #9e1d28;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.periodo {
+  background-color: #bfcadf;
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 14px;
+  margin: 5px 0;
+  color: #4b5563;
+  
+}
+.text {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+.cuadrado {
+  border: 1px solid rgba(0, 0, 0, 0.507);
+  padding: 1px 15px;
+  display: flex;
+  align-items: center;
+  margin: 1px 5px;
+
+}
+.cuadrado-invi {
+  border: 1px solid rgba(255, 255, 255, 0.507);
+  padding: 10px 15px;
+}
+.progress-bar {
+  width: 100%;
+  margin: 10px;
+}
+
