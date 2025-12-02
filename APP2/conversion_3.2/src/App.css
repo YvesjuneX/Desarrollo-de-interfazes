@@ -70,40 +70,52 @@ body {
   text-align: center;
 }
 
-.foto-perfil {
+.foto {
   width: 150px;
   height: 150px;
   border: 4px solid white;
   margin-bottom: 20px;
 }
 
-.header h1 {
-  font-size: 48px;
-  margin: 10px 0;
-}
 
-.header h2 {
-  font-size: 24px;
-  font-weight: normal;
-  opacity: 0.9;
-  margin: 10px 0;
-}
-
-.seccion {
-  padding: 30px;
-  margin: 20px;
+.reproductor {
+  padding: 5px;
+  margin: 0 60px;
   background-color: #f9fafb;
+  border-radius: 10px;
+  display: flex;
+}
+.descripcion {
+  padding: 5px;
+  margin: 5px 20px;
+  background-color: #f9fafb;
+  border-radius: 10px;
+  height: 160px;
+  overflow: hidden;
+  display: flex;
+}
+.progress-ba {
+  padding: 5px;
+  margin: 7px;
+  background-color: #f9fafb00;
   border-radius: 10px;
   display: flex;
 }
 
 .titulo-seccion {
-  font-size: 24px;
+  font-size: 40px;
   font-weight: bold;
   color: #1f2937;
-  margin-bottom: 15px;
+  margin-top: 15px;
+  margin-bottom: -10px;
 }
-
+.subtitulo {
+  font-size: 20px;
+  color: #92959a;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
 .lista-habilidades {
   /*Permite que los elementos contenidos dentro ajusten su tamaño dependiendo del tamaño disponible*/
   display: flex;
@@ -157,11 +169,13 @@ body {
   color: #333;
   font-size: 16px;
   line-height: 1.6;
+  margin-top: 0;
 }
 
 
 .cuadrado {
   border: 1px solid rgba(0, 0, 0, 0.507);
+  background-color: #f9fafb;
   padding: 1px 15px;
   display: flex;
   align-items: center;
@@ -169,11 +183,66 @@ body {
 
 }
 .cuadrado-invi {
-  border: 1px solid rgba(255, 255, 255, 0.507);
   padding: 10px 15px;
 }
 .progress-bar {
   width: 100%;
   margin: 10px;
 }
+.checkboxes-container {
+  display: flex;
+  justify-content: space-between; /* columnas en los extremos del contenedor padre */
+  width: 80%;
+  margin: 10px 37px;   
+}
 
+.checkbox-column {
+  display: flex;
+  flex-direction: column; /* apilar checkboxes verticalmente */
+  gap: 1px;              /* espacio entre checkboxes de la misma columna */
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center; /* centra texto y checkbox verticalmente */
+  gap: 5px;            /* espacio entre checkbox y texto */
+  cursor: pointer;     /* opcional, para que el cursor cambie al pasar sobre el texto */
+  color: black;
+}
+.buscador{
+  border-radius: 15px;
+  margin: 20px;
+  padding: 5px;
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.507);
+}
+.emojis{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.emoji-gris{
+  font-size: 25px;
+  margin: 7px;
+  filter: grayscale(100%);
+}
+.emoji-central{
+  border: 3px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  font-size: 40px;
+  margin: 7px;
+}
+.navegacion{
+  display: flex;
+  justify-content: center;
+}
+.navegacion > div {
+  margin: 10px 50px;
+  font-size: 25px;
+  color: #000000;
+}
+hr {
+  margin: 5px 20px;
+  background-color: rgba(196, 183, 183, 0.42);
+  height: 1px;
+}
