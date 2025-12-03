@@ -18,16 +18,20 @@ export function Reproductor() {
     </div>
   );
 }
+
 export function Descripcion() {
   return (
     <>
-      <h2 className="titulo-seccion">Alejandro Sanz</h2>
-      <h2 className="subtitulo">- Más -</h2>
+    {/*David bisbal*/}
+    {/*https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/2023-11-16_Gala_de_los_Latin_Grammy%2C_12_%28cropped%29.jpg/250px-2023-11-16_Gala_de_los_Latin_Grammy%2C_12_%28cropped%29.jpg*/}
+    {/*Todo es posible en navidad*/}
+      <h2 className="titulo-seccion">David bisbal</h2>
+      <h2 className="subtitulo">Todo es posible en navidad</h2>
       <div className="border"></div>
       {/*Contenedor con la imagen de Alejandro Sanz y descripcion*/}
       <div className="descripcion">
         <img
-          src="https://hips.hearstapps.com/hmg-prod/images/spanish-singer-alejandro-sanz-arrives-for-univisions-37th-news-photo-1759743852.pjpeg?crop=0.636xw:0.425xh;0.138xw,0.0656xh&resize=640:*"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/2023-11-16_Gala_de_los_Latin_Grammy%2C_12_%28cropped%29.jpg/250px-2023-11-16_Gala_de_los_Latin_Grammy%2C_12_%28cropped%29.jpg"
           alt="Foto de alejandro sanz"
           className="foto"
         />
@@ -95,23 +99,23 @@ export function Buscador() {
     </div>
   );
 }
-export function Emojis() {
+export function Emojis({ mascarilla,feliz2,vaquero,diablo,robot }) {
   return (
     <div className='emojis'>
       <div className='emoji-gris'>
-        😷
+        {mascarilla}
       </div>
       <div className='emoji-gris'>
-        😄
+        {feliz2}
       </div>
       <div className='emoji-central'>
-        🤠
+        {vaquero}
       </div>
       <div className='emoji-gris'>
-        👿
+        {diablo}
       </div>
       <div className='emoji-gris'>
-        🤖
+        {robot}
       </div>
     </div>
   );
