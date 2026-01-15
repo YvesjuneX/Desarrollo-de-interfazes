@@ -1,0 +1,82 @@
+{
+  "nba_teams": [
+    {
+      "id": 1,
+      "name": "Chicago Bulls",
+      "era": "1995-1996 (The 72-10 Season)",
+      "logo_url": "https://upload.wikimedia.org/wikipedia/en/6/67/Chicago_Bulls_logo.svg",
+      "top_players": [
+        "Michael Jordan",
+        "Scottie Pippen",
+        "Dennis Rodman",
+        "Toni Kukoč",
+        "Steve Kerr"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Los Angeles Lakers",
+      "era": "1986-1987 (Showtime Era)",
+      "logo_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Los_Angeles_Lakers_logo.svg",
+      "top_players": [
+        "Magic Johnson",
+        "Kareem Abdul-Jabbar",
+        "James Worthy",
+        "Byron Scott",
+        "Michael Cooper"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Boston Celtics",
+      "era": "1985-1986 (The Big Three Era)",
+      "logo_url": "https://upload.wikimedia.org/wikipedia/en/8/8f/Boston_Celtics.svg",
+      "top_players": [
+        "Larry Bird",
+        "Kevin McHale",
+        "Robert Parish",
+        "Dennis Johnson",
+        "Danny Ainge"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Golden State Warriors",
+      "era": "2016-2017 (The Hamptons Five)",
+      "logo_url": "https://upload.wikimedia.org/wikipedia/en/0/01/Golden_State_Warriors_logo.svg",
+      "top_players": [
+        "Stephen Curry",
+        "Kevin Durant",
+        "Klay Thompson",
+        "Draymond Green",
+        "Andre Iguodala"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Detroit Pistons",
+      "era": "1988-1989 (The Bad Boys)",
+      "logo_url": "https://upload.wikimedia.org/wikipedia/en/1/1e/Detroit_Pistons_logo.svg",
+      "top_players": [
+        "Isiah Thomas",
+        "Joe Dumars",
+        "Bill Laimbeer",
+        "Dennis Rodman",
+        "Rick Mahorn"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "San Antonio Spurs",
+      "era": "2013-2014 (Beautiful Game)",
+      "logo_url": "https://upload.wikimedia.org/wikipedia/en/a/a2/San_Antonio_Spurs.svg",
+      "top_players": [
+        "Tim Duncan",
+        "Tony Parker",
+        "Manu Ginóbili",
+        "Kawhi Leonard",
+        "Danny Green"
+      ]
+    }
+  ]
+}

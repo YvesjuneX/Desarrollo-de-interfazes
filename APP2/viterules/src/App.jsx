@@ -8,7 +8,7 @@ import './App.css'
     <div className='contenedor-principal'>
       <div className="header">
         <img 
-          src="https://media.licdn.com/dms/image/v2/D4D03AQEC_BTKCwtA3g/profile-displayphoto-scale_200_200/B4DZqW4mRcIgAY-/0/1763468011577?e=1764806400&v=beta&t=Bxdn-t_9q-YGZJfyS3XDKuA6I2vbOX6NSO_RIr4k2jw" 
+          src="https://media.licdn.com/dms/image/v2/D4D03AQEC_BTKCwtA3g/profile-displayphoto-scale_200_200/B4DZqW4mRcIgAY-/0/1763468011577?e=1769644800&v=beta&t=2yQCFI030M3mbs2Qrh6twJmelTnoQpJwTxCJXmlm7hg" 
           alt="Mi foto" 
           className="foto-perfil"
         />
