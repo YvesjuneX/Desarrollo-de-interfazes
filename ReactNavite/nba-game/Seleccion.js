@@ -38,6 +38,7 @@ export default function Seleccion({ navigation }) {
             resizeMode="contain"
           />
           <Text style={styles.nombreEquipo}>{equipoIzq.name}</Text>
+          <Text style={styles.titulo}>EQUIPO LOCAL</Text>
           <Button title="Cambiar" onPress={() => cambiarEquipo(0)} />
 
           <View style={styles.listaJugadores}>
@@ -45,6 +46,7 @@ export default function Seleccion({ navigation }) {
               <Text key={index}>• {jugador}</Text>
             ))}
           </View>
+          
         </View>
 
         {/* Equipo Derecho */}
@@ -55,19 +57,21 @@ export default function Seleccion({ navigation }) {
             resizeMode="contain"
           />
           <Text style={styles.nombreEquipo}>{equipoDer.name}</Text>
+          <Text style={styles.titulo}>EQUIPO VISITANTE</Text>
           <Button title="Cambiar" onPress={() => cambiarEquipo(1)} />
           <View style={styles.listaJugadores}>
             {equipoDer.top_players.map((jugador,index) => (
               <Text key={index}>• {jugador}</Text>
             ))}
           </View>
+           
         </View>
 
       </View>
 
       <View style={styles.partido}>
         <Button
-          title="IR A PARTIDO"
+          title="Comenzar partido"
           onPress={() => navigation.navigate('Partido',{
             equipoIz: equipoIzq,
             equipoDe: equipoDer,
@@ -87,8 +91,9 @@ const styles = StyleSheet.create({
   },
   equiposContenedor: {
     flexDirection: 'row', // Esto pone uno al lado del otro
-    justifyContent: 'space-around',
-    width: '100%',
+    justifyContent: 'space-around', // Esto permite distribuir los 
+    width: '100%',                  // elementos uniformemente dejando el mismo espacio alrededor
+    
   },
   columna: {
     width: '45%',
@@ -110,5 +115,11 @@ const styles = StyleSheet.create({
   partido: {
     marginTop: 50,
     paddingHorizontal: 20,
+  },
+  titulo: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#666',
+    marginBottom: 10,
   },
 });
