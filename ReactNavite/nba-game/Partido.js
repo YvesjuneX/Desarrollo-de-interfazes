@@ -1,8 +1,19 @@
-import { View, Text, StyleSheet, Image } from 'react-native';
-
+import { View, Text, StyleSheet, Image, Button } from 'react-native';
+import React, { useState } from 'react';
 export default function Partido({ route }) {
 
   const { equipoIz, equipoDe } = route.params || {};
+  const [contadorEquipoLocal, setContadorEquLoc] = useState(0);
+  const [contadorEquipoVisitante, setContadorEquiVis] = useState(0);
+  function anotarPunto(puntos,jugador,equipo) {
+    if(equipo==1){
+      setContadorEquLoc(contadorEquipoLocal+puntos)
+    }else {
+      setContadorEquiVis(contadorEquipoVisitante+puntos)
+    }
+   
+
+  };
 
   return (
     <View style={styles.contenedorPrincipal}>
@@ -18,7 +29,7 @@ export default function Partido({ route }) {
           />
           <Text style={styles.nombreMarcador}>{equipoIz.name}</Text>
           <Text style={styles.titulo}>EQUIPO LOCAL</Text>
-          <Text style={styles.contador}>0</Text>
+          <Text style={styles.contador}>{contadorEquipoLocal}</Text>
         </View>
 
         <Text style={styles.vs}>VS</Text>
@@ -31,27 +42,42 @@ export default function Partido({ route }) {
           />
           <Text style={styles.nombreMarcador}>{equipoDe.name}</Text>
           <Text style={styles.titulo}>EQUIPO VISITANTE</Text>
-          <Text style={styles.contador}>0</Text>
+          <Text style={styles.contador}>{contadorEquipoVisitante}</Text>
         </View>
 
       </View>
 
       {/* JUGADORES */}
       <View style={styles.equiposContenedor}>
-
+        {/* JUGADORES EQUIPO LOCAL */}
         <View style={styles.columna}>
-          <Text style={styles.tituloJugadores}>Jugadores</Text>
           {equipoIz.top_players.map((jugador, index) => (
-            <Text key={index}>• {jugador}</Text>
+            <View key={index} style={styles.jugadorFila}>
+              <Text style={styles.nombreJugador}>• {jugador}</Text>
+
+              <View style={styles.botonesPuntos}>
+                <Button title="2 PT" onPress={() => anotarPunto(2,{jugador},1)} />
+                <Button title="3 PT" onPress={() => anotarPunto(3,{jugador},1)} />
+              </View>
+            </View>
           ))}
         </View>
 
+        {/* JUGADORES EQUIPO VISITANTE */}
         <View style={styles.columna}>
-          <Text style={styles.tituloJugadores}>Jugadores</Text>
           {equipoDe.top_players.map((jugador, index) => (
-            <Text key={index}>• {jugador}</Text>
+            <View key={index} style={styles.jugadorFila}>
+              <Text style={styles.nombreJugador}>• {jugador}</Text>
+
+              <View style={styles.botonesPuntos}>
+                <Button title="2 PT" onPress={() => anotarPunto(2,{jugador},2)} />
+                <Button title="3 PT" onPress={() => anotarPunto(3,{jugador},2)} />
+              </View>
+            </View>
           ))}
         </View>
+
+
 
       </View>
 
@@ -126,5 +152,21 @@ const styles = StyleSheet.create({
   fontWeight: 'bold',
   color: '#111',
   marginHorizontal: 15,
-}
+},
+jugadorFila: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  marginBottom: 10,
+},
+
+nombreJugador: {
+  flex: 1,
+  fontSize: 14,
+},
+
+botonesPuntos: {
+  flexDirection: 'row',
+  gap: 6,
+},
 });
