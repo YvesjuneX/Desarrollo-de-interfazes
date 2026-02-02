@@ -1,17 +1,40 @@
 import { View, Text, StyleSheet, Image, Button } from 'react-native';
 import React, { useState } from 'react';
-export default function Partido({ route }) {
+export default function Partido({ route,navigation }) {
 
   const { equipoIz, equipoDe } = route.params || {};
   const [contadorEquipoLocal, setContadorEquLoc] = useState(0);
   const [contadorEquipoVisitante, setContadorEquiVis] = useState(0);
+  const [puntosLocal, setPuntosLocal] = useState({});
+  const [puntosVisitante, setPuntosVisitante] = useState({});
   function anotarPunto(puntos,jugador,equipo) {
     if(equipo==1){
       setContadorEquLoc(contadorEquipoLocal+puntos)
+      setPuntosLocal(prev => {
+        const copia = { ...prev };
+
+        if (copia[jugador] !== undefined) {
+          copia[jugador] += puntos;
+        } else {
+          copia[jugador] = puntos;
+        }
+
+        return copia;
+    });
     }else {
       setContadorEquiVis(contadorEquipoVisitante+puntos)
+      setPuntosVisitante(prev => {
+        const copia = { ...prev };
+
+        if (copia[jugador] !== undefined) {
+          copia[jugador] += puntos;
+        } else {
+          copia[jugador] = puntos;
+        }
+
+        return copia;
+    });
     }
-   
 
   };
 
@@ -56,8 +79,8 @@ export default function Partido({ route }) {
               <Text style={styles.nombreJugador}>• {jugador}</Text>
 
               <View style={styles.botonesPuntos}>
-                <Button title="2 PT" onPress={() => anotarPunto(2,{jugador},1)} />
-                <Button title="3 PT" onPress={() => anotarPunto(3,{jugador},1)} />
+                <Button title="2 PT" onPress={() => anotarPunto(2,jugador,1)} />
+                <Button title="3 PT" onPress={() => anotarPunto(3,jugador,1)} />
               </View>
             </View>
           ))}
@@ -70,15 +93,25 @@ export default function Partido({ route }) {
               <Text style={styles.nombreJugador}>• {jugador}</Text>
 
               <View style={styles.botonesPuntos}>
-                <Button title="2 PT" onPress={() => anotarPunto(2,{jugador},2)} />
-                <Button title="3 PT" onPress={() => anotarPunto(3,{jugador},2)} />
+                <Button title="2 PT" onPress={() => anotarPunto(2,jugador,2)} />
+                <Button title="3 PT" onPress={() => anotarPunto(3,jugador,2)} />
               </View>
             </View>
           ))}
         </View>
-
-
-
+      </View>
+      <View style={styles.finalizarContainer}>
+        <Button
+          title="Fin del juego"
+          onPress={() => navigation.navigate('Resultados',{
+            equipoIz: equipoIz,
+            equipoDe: equipoDe,
+            contadorEquipoLocal: contadorEquipoLocal,
+            contadorEquipoVisitante: contadorEquipoVisitante,
+            puntosLocal: puntosLocal,
+            puntosVisitante: puntosVisitante,
+          })}
+        />
       </View>
 
     </View>
@@ -169,4 +202,8 @@ botonesPuntos: {
   flexDirection: 'row',
   gap: 6,
 },
+finalizarContainer: {
+  marginTop: 30,
+  alignItems: 'center',
+}
 });

@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Partido from './Partido'
 import Seleccion from './Seleccion'
+import Resultados from './Resultados'
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
         />
         
         <Stack.Screen name="Partido" component={Partido} />
+        <Stack.Screen name="Resultados" component={Resultados}/>
 
       </Stack.Navigator>
     </NavigationContainer>
