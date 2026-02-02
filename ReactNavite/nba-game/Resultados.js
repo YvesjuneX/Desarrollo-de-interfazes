@@ -10,46 +10,61 @@ export default function Resultados({ route }) {
     contadorEquipoVisitante,
   } = route.params || {};
 
-  // Decide qué se muestra
   function determinarResultado() {
     if (contadorEquipoLocal > contadorEquipoVisitante) {
-      return mostrarGanador(equipoIz, contadorEquipoLocal);
-    } 
+      return mostrarGanador(equipoIz, contadorEquipoLocal, 'EQUIPO LOCAL');
+    }
     if (contadorEquipoVisitante > contadorEquipoLocal) {
-      return mostrarGanador(equipoDe, contadorEquipoVisitante);
+      return mostrarGanador(equipoDe, contadorEquipoVisitante, 'EQUIPO VISITANTE');
     }
     return mostrarEmpate();
   }
 
-  // Muestra un solo ganador
-  function mostrarGanador(equipo, puntos) {
+  function mostrarGanador(equipo, puntos, tipoEquipo) {
     return (
-      <View style={styles.resultadoBox}>
+      <View style={styles.resultado}>
         <Text style={styles.winner}>WINNER</Text>
-        <Image source={{ uri: equipo.logo_url }} style={styles.logo} />
+
+        <Image
+          source={{ uri: equipo.logo_url }}
+          style={styles.logo}
+          resizeMode="contain"
+        />
+
         <Text style={styles.nombre}>{equipo.name}</Text>
-        <Text style={styles.puntos}>{puntos} pts</Text>
+        <Text style={styles.tipoEquipo}>{tipoEquipo}</Text>
+
+        <Text style={styles.contador}>{puntos}</Text>
       </View>
     );
   }
 
-  // Muestra empate
   function mostrarEmpate() {
     return (
-      <View style={styles.resultadoBox}>
+      <View style={styles.resultado}>
         <Text style={styles.winner}>EMPATE</Text>
 
         <View style={styles.empateEquipos}>
           <View style={styles.equipoEmpate}>
-            <Image source={{ uri: equipoIz.logo_url }} style={styles.logo} />
+            <Image
+              source={{ uri: equipoIz.logo_url }}
+              style={styles.logo}
+              resizeMode="contain"
+            />
             <Text style={styles.nombre}>{equipoIz.name}</Text>
-            <Text style={styles.puntos}>{contadorEquipoLocal} pts</Text>
+            <Text style={styles.tipoEquipo}>EQUIPO LOCAL</Text>
+            <Text style={styles.contador}>{contadorEquipoLocal}</Text>
           </View>
 
           <View style={styles.equipoEmpate}>
-            <Image source={{ uri: equipoDe.logo_url }} style={styles.logo} />
+            <Image
+              source={{ uri: equipoDe.logo_url }}
+              style={styles.logo}
+              resizeMode="contain"
+            />
             <Text style={styles.nombre}>{equipoDe.name}</Text>
-            <Text style={styles.puntos}>{contadorEquipoVisitante} pts</Text>
+            <Text style={styles.tipoEquipo}>EQUIPO VISITANTE</Text>
+            <Text style={styles.contador}>{contadorEquipoVisitante}</Text>
           </View>
         </View>
       </View>
@@ -77,23 +92,19 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 
-  resultadoBox: {
+  resultado: {
     alignItems: 'center',
-    borderWidth: 2,
-    borderColor: '#333',
-    padding: 20,
-    borderRadius: 10,
   },
 
   winner: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
     marginBottom: 15,
   },
 
   logo: {
-    width: 120,
-    height: 90,
+    width: 150,
+    height: 100,
     marginBottom: 10,
   },
 
@@ -102,9 +113,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  puntos: {
-    fontSize: 16,
-    marginTop: 5,
+  tipoEquipo: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 10,
+  },
+
+  contador: {
+    fontSize: 48,
+    fontWeight: 'bold',
+    color: '#111',
+    marginHorizontal: 15,
   },
 
   empateEquipos: {
