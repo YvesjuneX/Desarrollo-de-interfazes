@@ -8,7 +8,24 @@ export default function Resultados({ route }) {
     equipoDe,
     contadorEquipoLocal,
     contadorEquipoVisitante,
+    puntosLocal,
+    puntosVisitante,
   } = route.params || {};
+
+  
+  function obtenerTop5() {
+    // Se crea una lista que almacene los puntos echos por los jugadores del equipo local y visitante
+    const puntosTotales = { ...puntosLocal, ...puntosVisitante };
+    //Se convierte el objeto en un array con el Object.entries y despues se ordena 
+    // con el metodo sort que compara los puntos de dos jugadores y si el primero tiene mas puntos va 
+    // antes que el otro, despues se corta el array y se cogen los 5 primeros
+    return Object.entries(puntosTotales)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5);
+  }
+
+  const top5 = obtenerTop5();
+
 
   function determinarResultado() {
     if (contadorEquipoLocal > contadorEquipoVisitante) {
@@ -33,7 +50,6 @@ export default function Resultados({ route }) {
 
         <Text style={styles.nombre}>{equipo.name}</Text>
         <Text style={styles.tipoEquipo}>{tipoEquipo}</Text>
-
         <Text style={styles.contador}>{puntos}</Text>
       </View>
     );
@@ -46,22 +62,14 @@ export default function Resultados({ route }) {
 
         <View style={styles.empateEquipos}>
           <View style={styles.equipoEmpate}>
-            <Image
-              source={{ uri: equipoIz.logo_url }}
-              style={styles.logo}
-              resizeMode="contain"
-            />
+            <Image source={{ uri: equipoIz.logo_url }} style={styles.logo} resizeMode="contain" />
             <Text style={styles.nombre}>{equipoIz.name}</Text>
             <Text style={styles.tipoEquipo}>EQUIPO LOCAL</Text>
             <Text style={styles.contador}>{contadorEquipoLocal}</Text>
           </View>
 
           <View style={styles.equipoEmpate}>
-            <Image
-              source={{ uri: equipoDe.logo_url }}
-              style={styles.logo}
-              resizeMode="contain"
-            />
+            <Image source={{ uri: equipoDe.logo_url }} style={styles.logo} resizeMode="contain" />
             <Text style={styles.nombre}>{equipoDe.name}</Text>
             <Text style={styles.tipoEquipo}>EQUIPO VISITANTE</Text>
             <Text style={styles.contador}>{contadorEquipoVisitante}</Text>
@@ -74,15 +82,26 @@ export default function Resultados({ route }) {
   return (
     <View style={styles.contenedor}>
       <Text style={styles.titulo}>Resultado Final</Text>
+
       {determinarResultado()}
+
+      <View style={styles.bloqueLista}>
+        <Text style={styles.tituloLista}>TOP 5 DEL PARTIDO</Text>
+
+        {top5.map(([jugador, puntos], index) => (
+          <Text key={index} style={styles.filaJugador}>
+            {index + 1}. {jugador} - {puntos} pts
+          </Text>
+        ))}
+      </View>
     </View>
   );
 }
+
+
 const styles = StyleSheet.create({
   contenedor: {
-    flex: 1,
     padding: 20,
-    backgroundColor: '#fff',
   },
 
   titulo: {
@@ -94,6 +113,7 @@ const styles = StyleSheet.create({
 
   resultado: {
     alignItems: 'center',
+    marginBottom: 30,
   },
 
   winner: {
@@ -116,6 +136,7 @@ const styles = StyleSheet.create({
   tipoEquipo: {
     fontSize: 14,
     color: '#666',
+    fontWeight: 'bold',
     marginBottom: 10,
   },
 
@@ -135,5 +156,22 @@ const styles = StyleSheet.create({
   equipoEmpate: {
     alignItems: 'center',
     width: '45%',
+  },
+
+  bloqueLista: {
+    marginTop: 20,
+  },
+
+  tituloLista: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+
+  filaJugador: {
+    fontSize: 16,
+    marginVertical: 4,
+    textAlign: 'center',
   },
 });
